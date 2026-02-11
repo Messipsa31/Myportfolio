@@ -1,0 +1,373 @@
+:root {
+    --bg: #050505;
+    --accent: #7000ff;
+    --text: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Background Glow Effect */
+.bg-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a103d 0%, #050505 100%);
+    z-index: -1;
+}
+
+/* Navigation */
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 10%; 
+    position: fixed; 
+    width: 100%; 
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(5, 5, 5, 0.2);
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+.logo span { color: var(--accent); }
+.nav-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 0.9rem; opacity: 0.7; transition: 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 10% 0 10%; /* إضافة Padding علوي لمنع التداخل مع القائمة */
+}
+
+h1 { 
+    font-size: clamp(2.5rem, 8vw, 5rem); /* تصغير بسيط للخط ليناسب الشاشة */
+    line-height: 1; 
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #7000ff, #00d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtext { margin: 20px 0; font-size: 1.1rem; opacity: 0.6; max-width: 600px; }
+
+/* Buttons */
+.btn-primary {
+    background: var(--text); 
+    color: var(--bg);
+    padding: 15px 35px; 
+    text-decoration: none; 
+    border-radius: 50px;
+    font-weight: 600; 
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary:hover { 
+    background: var(--accent); 
+    color: white; 
+    transform: scale(1.05) translateY(-3px); 
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+}
+
+.btn-secondary {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+    opacity: 0.5;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Projects Section */
+.work-section { padding: 80px 10%; }
+.projects-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    margin-top: 40px; 
+}
+
+.card {
+    background: var(--glass); 
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; 
+    padding: 30px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--accent); 
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.card h3 { font-size: 1.4rem; margin: 10px 0; }
+.card p { font-size: 0.9rem; opacity: 0.7; }
+
+/* About Section (Fixed & Scaled) */
+.about-section { padding: 80px 10%; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.about-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--accent);
+}
+
+.about-card p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.6;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.section-number { color: var(--accent); font-weight: bold; margin-right: 10px; }
+
+/* Contact Section */
+.contact { text-align: center; padding: 100px 10%; }
+.email-link {
+    font-size: clamp(1.5rem, 5vw, 3rem); 
+    color: var(--text);
+    text-decoration: none; 
+    font-weight: 800; 
+    display: block; 
+    margin: 20px 0;
+    transition: 0.3s;
+}
+.email-link:hover { color: var(--accent); }
+
+/* Footer (Fully Separated) */
+.main-footer {
+    padding: 40px 10%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content p {
+    font-size: 0.75rem;
+    opacity: 0.3;
+    letter-spacing: 1px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav { padding: 15px 5%; }
+    .nav-links { display: none; } /* يفضل اخفاء الروابط في الموبايل أو عمل قائمة */
+    
+    .hero { padding-top: 100px; }
+    h1 { font-size: 2.5rem !important; }
+    
+    .about-grid, .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* لجعل الرابط يملأ كامل البطاقة دون تغيير التنسيق */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 250px;
+    transition: 0.4s ease;
+    display: flex; /* مهم جداً لترتيب المحتوى */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.contact {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.contact-box {
+    background: var(--glass);
+    padding: 60px 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.email-link {
+    display: block;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 800;
+    margin: 30px 0;
+    transition: 0.3s;
+}
+
+.email-link:hover {
+    color: var(--accent);
+    transform: scale(1.02);
+}
+
+/* تنسيق الأيقونات */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-5px) rotate(10deg); /* تأثير حركة لطيف */
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+}
+
+.lang-btn-modern {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); /* خلفية زجاجية خفيفة */
+    backdrop-filter: blur(10px); /* تأثير الضباب */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px; /* شكل بيضاوي عصري */
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* الأيقونة */
+.lang-btn-modern i {
+    color: var(--accent); /* اللون البنفسجي أو لونك الأساسي */
+    font-size: 1rem;
+    transition: transform 0.5s ease;
+}
+
+/* تأثير عند تمرير الماوس */
+.lang-btn-modern:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.2);
+}
+
+.lang-btn-modern:hover i {
+    transform: rotate(360deg); /* تدوير الأيقونة عند اللمس */
+}
+
+/* تأثير التوهج (Glow) */
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(20px);
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.lang-btn-modern:hover .btn-glow {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+}
+
+.card-action {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent); /* لون التميز الخاص بك */
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.card:hover .card-action {
+    gap: 15px; /* حركة بسيطة للسهم عند لمس الكارت */
+}
